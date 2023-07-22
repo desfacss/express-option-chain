@@ -4,6 +4,8 @@ src/*.json
 *.rdb
 *.prof
 
+*.pyc
+
 dist/
 */express_option_chain.egg-info
 

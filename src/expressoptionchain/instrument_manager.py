@@ -3,7 +3,7 @@ import functools
 import json
 import logging
 from datetime import date, datetime
-
+from typing import List, Dict
 import redis
 
 from expressoptionchain import helper
@@ -191,7 +191,7 @@ class KiteInstrumentFetcher:
     def __init__(self, secrets, redis_config: redis_helper.RedisConfig = redis_helper.RedisConfig()):
         self.db = redis_helper.get_redis_instance(redis_config)
 
-    def get_tokens(self, trading_symbols, expiry, criteria) -> list[int]:
+    def get_tokens(self, trading_symbols, expiry, criteria) -> List[int]:
         '''
         this method returns all the instrument tokens available for the underlying trading symbol after applying the
         criteria filter
@@ -261,7 +261,7 @@ class KiteInstrumentFetcher:
 
             return all_tokens
 
-    def get_token_info_for_trading_symbol(self, trading_symbol, expiry) -> list[int]:
+    def get_token_info_for_trading_symbol(self, trading_symbol, expiry) -> List[int]:
         """
         This method fetches the instrument tokens of all the options of the trading symbol
         :param trading_symbol: format is i.e. exchange:trading symbol

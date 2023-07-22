@@ -1,7 +1,7 @@
 import logging
 
 from kiteconnect import KiteConnect
-
+from typing import List, Dict
 log = logging.getLogger(__name__)
 
 
@@ -30,7 +30,7 @@ class KiteConnector:
     def __init__(self, secrets: dict) -> None:
         self.kite_client = KiteConnectionManager.get_kite_client(secrets)
 
-    def get_ltp(self, trading_symbols: list[str]) -> dict[str, dict[str, float]]:
+    def get_ltp(self, trading_symbols: List[str]) -> Dict[str, Dict[str, float]]:
         '''
         :param trading_symbols: list of trading symbols of format exchange:trading_symbol e.g. NSE:ACC
         :return: map of trading symbol to the ltp quote e.g. {'NSE:ACC': {'instrument_token': 5633, 'last_price': 1880.4}}

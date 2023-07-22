@@ -5,7 +5,7 @@ import threading
 import time
 from datetime import date, datetime
 from multiprocessing import Process
-
+from typing import List, Dict
 from kiteconnect import KiteTicker
 
 from expressoptionchain import helper
@@ -105,8 +105,8 @@ class OptionStream:
     MAX_TOKENS_PER_WEBSOCKET = 3000
     MAX_WEBSOCKET_CONNECTIONS = 3
 
-    def __init__(self, trading_symbols: list[str], secrets: dict[str, str], expiry: str,
-                 criteria: dict[str, str] = None, max_connections=MAX_WEBSOCKET_CONNECTIONS,
+    def __init__(self, trading_symbols: List[str], secrets: Dict[str, str], expiry: str,
+                 criteria: Dict[str, str] = None, max_connections=MAX_WEBSOCKET_CONNECTIONS,
                  update_instruments: bool = False, redis_config: RedisConfig = RedisConfig()):
         """
         :param trading_symbols: list of trading symbols in the format "exchange:trading_symbol".

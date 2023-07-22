@@ -1,7 +1,7 @@
 import json
 import logging
 from collections import defaultdict
-
+from typing import List, Dict
 from expressoptionchain import helper, redis_helper
 from expressoptionchain.kite_connector import KiteConnector
 from expressoptionchain.redis_helper import RedisConfig
@@ -29,7 +29,7 @@ class OptionChainFetcher:
             raise Exception(f'Option chain of {trading_symbol} not found')
         return option_chain
 
-    def get_option_chains(self, trading_symbols: list[str]) -> list[dict]:
+    def get_option_chains(self, trading_symbols: List[str]) -> List[dict]:
         """
         gets the list of option chain of the trading symbols passed
         :param trading_symbols: list of trading symbols in the format exchange:trading symbol

@@ -11,6 +11,7 @@ def get_time_in_str(dt):
 
 
 def get_secrets(filename=f'{os.environ["HOME"]}/.kite/secrets'):
+    filename = os.path.abspath(os.curdir) + '/src/kite.json'
     try:
         with open(filename, 'r') as f:
             secrets = json.load(f)
@@ -19,9 +20,9 @@ def get_secrets(filename=f'{os.environ["HOME"]}/.kite/secrets'):
         message = f'''{filename} not found. Please put the secrets in {filename} or execute the the command till 
         cat > {filename} << EOF
         {
-            "api_key": "your_api_key",
-            "api_secret": "your_api_secret",
-            "access_token": "generated_access_token"
+            "api_key": "tngjty79dojxs898",
+            "api_secret": "ir7h7nj4oswfkie4zsbiuf3r1566vnhb",
+            "access_token": "3ock4w6n6GTmAJnNrYmkjlz97E3zNQc8"
         }
         EOF
         '''
